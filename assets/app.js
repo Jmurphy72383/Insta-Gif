@@ -43,19 +43,21 @@ $("button").on("click", function() {
             gifIMG.attr("data-still", gifURL);
             gifIMG.attr("data-animate", gifAction);
             gifIMG.attr("data-state", "still");
-             $("#images").prepend(newDiv);
-             $("#gifDiv").prepend(gifRat);
-             $("#gifDiv").prepend(gifIMG);
-             $(".gif").on("click", function() {
+            $("#images").prepend(newDiv);
+            $("#gifDiv").prepend(gifRat);
+            $("#gifDiv").prepend(gifIMG);
+            
+            $(".gif").on("mouseover", function() {
                 var state = $(this).attr("data-state");
-                if (state === "still") {
-                  $(this).attr("src", $(this).attr("data-animate"));
-                  $(this).attr("data-state", "animate");
-                } else {
-                  $(this).attr("src", $(this).attr("data-still"));
-                  $(this).attr("data-state", "still");
-                }
-              });
+                $(this).attr("src", $(this).attr("data-animate"));
+                $(this).attr("data-state", "animate");
+
+            });
+              
+            $(".gif").on("mouseout", function() {
+                $(this).attr("src", $(this).attr("data-still"));
+                $(this).attr("data-state", "still");
+            })
         }
     })
 })
@@ -94,19 +96,22 @@ function update() {
                 gifIMG.attr("data-still", gifURL);
                 gifIMG.attr("data-animate", gifAction);
                 gifIMG.attr("data-state", "still");
-                 $("#images").prepend(newDiv);
-                 $("#gifDiv").prepend(gifRat);
-                 $("#gifDiv").prepend(gifIMG);
-                 $(".gif").on("click", function() {
+                $("#images").prepend(newDiv);
+                $("#gifDiv").prepend(gifRat);
+                $("#gifDiv").prepend(gifIMG);
+                
+                $(".gif").on("mouseover", function() {
                     var state = $(this).attr("data-state");
-                    if (state === "still") {
-                      $(this).attr("src", $(this).attr("data-animate"));
-                      $(this).attr("data-state", "animate");
-                    } else {
-                      $(this).attr("src", $(this).attr("data-still"));
-                      $(this).attr("data-state", "still");
-                    }
-                  });
+                    $(this).attr("src", $(this).attr("data-animate"));
+                    $(this).attr("data-state", "animate");
+    
+                });
+                  
+                $(".gif").on("mouseout", function() {
+                    $(this).attr("src", $(this).attr("data-still"));
+                    $(this).attr("data-state", "still");
+                })
+                
             }
             
         })
